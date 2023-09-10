@@ -1,0 +1,64 @@
+﻿@model ProdutoModel
+@{
+	ViewData["Title"] = "Cadastro de Produtos";
+}
+
+<div class="text-center mx-auto col-10 col-md-8 col-lg-6">
+	<h1 class="display-4"> Cadastro de Produtos</h1>
+
+	<form asp-controller="Produto" asp-action="Criar" method="post" class="col" enctype="multipart/form-data">
+		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+		<div class="row">
+			<div class="col-12 my-2">
+				<label for="descricao" class="form-label">Descrição</label>
+				<input type="text" asp-for="Descricao" class="form-control text-center text-secondary" id="descricao" placeholder="Entre com a descrição do produto">
+				<span asp-validation-for="Descricao" class="text-danger"></span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-7 my-2">
+				<label for="codigoDeBarras" class="form-label">Código de Barras</label>
+				<input type="text" asp-for="CodigoDeBarras" class="form-control text-center text-secondary" id="codigoDeBarras" placeholder="Cód do produto">
+				<span asp-validation-for="CodigoDeBarras" class="text-danger"></span>
+			</div>
+			<div class="col-5 my-2">
+				<label for="quantidade" class="form-label">Quantidade</label>
+				<input type="number" asp-for="Quantidade" class="form-control text-center text-secondary" id="quantidade" placeholder="Qtde">
+				<span asp-validation-for="Quantidade" class="text-danger"></span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-7 my-2">
+				<label for="dataDeValidade" class="form-label">Data de Validade</label>
+				<input type="date" asp-for="DataDeValidade" class="form-control text-center text-secondary" id="dataDeValidade" placeholder="Data de validade do produto">
+				<span asp-validation-for="DataDeValidade" class="text-danger"></span>
+			</div>
+			<div class="col-5 my-2">
+				<label for="valor" class="form-label">Valor Unitário</label>
+				<input type="text" asp-for="Valor" class="form-control text-center text-secondary" id="valor" placeholder="R$ 0,00">
+				<span asp-validation-for="Valor" class="text-danger"></span>
+			</div>
+		</div>
+		<div class="row col-12 mx-auto mt-2">
+			<label for="imagemCarregada" class="form-label">Foto</label>
+			<input type="file" accept="image/png, image/jpeg" class="form-control text-center text-secondary" id="imagemCarregada" placeholder="Busque a foto do produto." name="imagemCarregada">
+		</div>
+		<div class="row col-1 my-4 mx-auto">
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" asp-for="Ativo" id="ativo" checked>
+				<span asp-validation-for="Ativo" class="text-danger"></span>
+				<label class="form-check-label" for="ativo">
+					Ativar
+				</label>
+			</div>
+		</div>
+		<div class="row col-8 mx-auto">
+			<div class="col-6">
+				<button type="submit" class="btn btn-primary btn-block my-2">Adicionar</button>
+			</div>
+			<div class="col-6">
+				<a class="btn btn-secondary btn-block my-2" asp-controller="Produto" asp-action="Index" role="button">Voltar</a>
+			</div>
+		</div>
+	</form>
+</div>

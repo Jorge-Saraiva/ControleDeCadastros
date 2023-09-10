@@ -1,0 +1,39 @@
+﻿@model LoginModel
+@{
+
+}
+
+<div class="col-10 col-md-8 col-lg-6 center mx-auto">
+	<div class="text-center" style="padding:50px 0">
+		<div class="login-form-1">
+			<form id="login-form" class="text-left" method="post">
+				<div class="login-form-main-message"></div>
+				<div class="main-login-form">
+					<div class="login-group">
+						<div class="form-group">
+							<label for="usuario" class="sr-only">Usuário</label>
+							<input type="text" class="form-control text-center text-secondary" id="usuario" name="usuario" placeholder="Digite o seu usuário" asp-for="Usuario" />
+							<span asp-validation-for="Usuario" class="text-danger"></span>
+						</div>
+						<div class="form-group mt-3">
+							<label for="email" class="sr-only">Email</label>
+							<input type="text" class="form-control text-center text-secondary" id="email" name="email" placeholder="Digite o seu email" asp-for="Email" />
+							<span asp-validation-for="Email" class="text-danger"></span>
+						</div>
+						<div class="form-group mt-3">
+							<label for="senha" class="sr-only">Senha</label>
+							<input type="password" class="form-control text-center text-secondary" id="senha" name="senha" placeholder="Digite a sua senha" asp-for="Senha" />
+							<span asp-validation-for="Senha" class="text-danger"></span>
+						</div>
+					</div>
+					<input class="my-3 btn btn-success" type="submit" id="botao" value="Cadastrar" />
+				</div>
+				<div class="etc-login-form">
+					<p>
+						<a class="btn btn-primary btn-block" asp-controller="Login" asp-action="Login" role="button">Voltar</a>
+					</p>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,89 @@
+﻿@using System.Globalization;
+@using ControleDeProdutosAula.Controllers;
+@model List<ProdutoModel>
+@{
+	ViewData["Title"] = "Produtos";
+}
+
+<div class="text-center">
+	<div class="d-grid gap-2 d-flex justify-content-center">
+		<a class="btn btn-success" role="button" asp-controller="Produto" asp-action="Criar">Adicionar novo produto</a>
+	</div>
+	<br />
+	<h1 class="display-4"> Lista de Produtos</h1>
+	@if (Model != null && Model.Any())
+	{
+		<div style="overflow-x:auto;">
+		<table class="table caption-top">
+		<caption hidden>Lista de Produtos</caption>
+		<thead>
+			<tr>
+				<th scope="col">Foto</th>
+				<th scope="col">Id</th>
+				<th scope="col">Cód. Barras</th>
+				<th scope="col">Descrição</th>
+				<th scope="col">Registro</th>
+				<th scope="col">Validade</th>
+				<th scope="col">Quantidade</th>
+				<th scope="col">Valor Unit.</th>
+				<th scope="col">Situação</th>
+				<th scope="col">Editar</th>
+				<th scope="col">Excluir</th>
+			</tr>
+		</thead>
+		<tbody>
+			@if (Model != null && Model.Any())
+			{
+				foreach (ProdutoModel produto in Model)
+				{
+					<tr class="align-baseline">
+						<td>
+							@{
+								@if (produto.Foto != null)
+								{
+									var base64 = Convert.ToBase64String(@produto.Foto);
+									var imgSrc = String.Format("data:image/gif; base64, {0}", base64);
+								
+									<img src='@imgSrc' class="image-size" />
+								}
+							}
+						</td>
+						<th scope="row">@produto.Id</th>
+						<td>@produto.CodigoDeBarras</td>
+						<td class="exemplo">@produto.Descricao</td>
+						<td>@produto.DataDeRegistro.ToString("dd/MM/yyyy")</td>
+						<td>@produto.DataDeValidade.ToString("dd/MM/yyyy")</td>
+						<td>@produto.Quantidade</td>
+						<td class="exemplo">R$ @produto.Valor.ToString("F2", new CultureInfo("pt-BR"))</td>
+						<td>
+							@if (@produto.Ativo)
+							{
+								<a role="button" class="situacao" asp-route-id="@produto.Id" asp-controller="Produto" asp-action="AtivarDesativar">
+									<p id="ativo">Ativo</p>
+								</a>
+							}
+							else
+							{
+								<a role="button" class="situacao" asp-route-id="@produto.Id" asp-controller="Produto" asp-action="AtivarDesativar">
+									<p id="inativo">Inativo</p>
+								</a>
+							}
+						</td>
+						<td>
+							<div class="btn-group" role="group">
+								<a role="button" class="bi bi-pencil-square mx-5" asp-route-id="@produto.Id" asp-controller="Produto" asp-action="Editar"></a>
+							</div>
+						</td>
+						<td>
+							<div class="btn-group" role="group">
+								<a role="button" class="bi bi-eraser" asp-route-id="@produto.Id" asp-controller="Produto" asp-action="ApagarConfirmacao"></a>
+							</div>
+						</td>
+					</tr>
+				}
+			}
+		</tbody>
+	</table>
+	</div>
+	}
+</div>

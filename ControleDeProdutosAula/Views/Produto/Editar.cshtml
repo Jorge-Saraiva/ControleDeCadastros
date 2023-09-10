@@ -1,0 +1,58 @@
+﻿@model ProdutoModel
+@{
+	ViewData["Title"] = "Editar Produto";
+}
+<div class="text-center mx-auto col-10 col-md-7 col-lg-5">
+	<h1 class="display-4">Editar Produto</h1>
+	<form asp-controller="Produto" asp-action="Alterar" method="post" class="col">
+		<div class="row mt-4">
+			<div class="col-12">
+				<label for="descricao" class="form-label">Descrição</label>
+				<input type="text" asp-for="Descricao" class="form-control text-center text-secondary" id="descricao" placeholder="Entre com a descrição do produto">
+			</div>
+		</div>
+		<div class="row mt-4">
+			<div class="col-7">
+				<input type="hidden" asp-for="Id" />
+				<label for="codigoDeBarras" class="form-label">Código de Barras</label>
+				<input type="text" asp-for="CodigoDeBarras" class="form-control text-center text-secondary" id="codigoDeBarras" placeholder="Entre com o código de barras do produto">
+			</div>
+			<div class="col-5 mx-auto">
+				<label for="quantidade" class="form-label">Quantidade</label>
+				<input type="number" asp-for="Quantidade" class="form-control text-center text-secondary" id="quantidade" placeholder="Quantidade">
+			</div>
+		</div>
+		<div class="row mt-4">
+			<div class="col-7">
+				<label for="dataDeValidade" class="form-label">Data de Validade</label>
+				<input type="date" asp-for="DataDeValidade" class="form-control text-center text-secondary" id="dataDeValidade" placeholder="Data de validade do produto">
+			</div>
+			<div class="col-5 mx-auto">
+				<label for="valor" class="form-label">Valor R$</label>
+				<input type="text" asp-for="Valor" class="form-control text-center text-secondary" id="valor" placeholder="R$ 0,00">
+			</div>
+		</div>
+		<!--
+		<div class="row col-12 mx-auto mt-4">
+			<label for="imagemAlterada" class="form-label">Foto</label>
+			<input type="file" asp-for="NomeDaFoto" class="form-control text-center text-secondary" id="imagemAlterada" placeholder="Busque a foto do produto">
+		</div>
+		-->
+		<div class="row my-4 col-1 mx-auto">
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" asp-for="Ativo" id="ativo">
+				<label class="form-check-label" for="ativo">
+					Ativo
+				</label>
+			</div>
+		</div>
+		<div class="row col-8 mx-auto">
+			<div class="col-6">
+				<button type="submit" class="btn btn-primary btn-block">Atualizar</button>
+			</div>
+			<div class="col-6">
+				<a class="btn btn-secondary btn-block" asp-controller="Produto" asp-action="Index" role="button">Voltar</a>
+			</div>
+		</div>
+	</form>
+</div>

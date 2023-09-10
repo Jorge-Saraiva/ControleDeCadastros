@@ -1,0 +1,50 @@
+﻿@model LoginModel
+@{
+	ViewData["Title"] = "Editar Usuário";
+}
+<div class="text-center mx-auto col-10 col-lg-6">
+	<h1 class="display-4">Editar Usuário</h1>
+	<form asp-controller="Login" asp-action="Alterar" method="post" class="col">
+		<div class="row mt-4">
+			<div class="col-sm-12">
+				<input type="hidden" asp-for="Id" />
+				<label for="usuario" class="form-label">Usuario</label>
+				<input type="text" asp-for="Usuario" class="form-control text-center text-secondary" id="usuario" placeholder="Digite o usuário">
+			</div>
+		</div>
+		<div class="row mt-4">
+			<div class="col-sm-12">
+				<label for="email" class="form-label">Email</label>
+				<input type="email" asp-for="Email" class="form-control text-center text-secondary" id="email" placeholder="Digite o e-mail">
+			</div>
+		</div>
+		<div class="row mt-4">
+			<div class="col-sm-12">
+				<label for="senhaAtual" class="form-label">Senha Atual</label>
+				<input type="password" class="form-control text-center text-secondary" id="senhaAtual" name="senhaAtual" placeholder="Digite a senha">
+			</div>
+		</div>
+		<div class="row mt-4">
+			<div class="col-sm-12">
+				<label for="novaSenha" class="form-label">Nova Senha</label>
+				<input type="password" class="form-control text-center text-secondary" id="novaSenha" name="novaSenha" placeholder="Digite a senha">
+			</div>
+		</div>
+		<!--
+		<div class="row col-4 mt-4 mx-auto">
+			<div class="col-12">
+				<label for="nivelAcesso" class="form-label">Nível de Acesso</label>
+				<input type="number" asp-for="NivelAcesso" class="form-control text-center text-secondary" id="nivelAcesso" placeholder="">
+			</div>
+		</div>
+		-->
+		<div class="row col-lg-6 mt-5 mx-auto">
+			<div class="col-6 px-1">
+				<button type="submit" class="btn btn-primary btn-block">Atualizar</button>
+			</div>
+			<div class="col-6 px-1">
+				<a class="btn btn-secondary btn-block" asp-controller="Home" asp-action="Index" role="button">Voltar</a>
+			</div>
+		</div>
+	</form>
+</div>

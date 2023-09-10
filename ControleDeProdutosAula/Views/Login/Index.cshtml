@@ -1,0 +1,40 @@
+﻿@{
+
+}
+
+<div class="col-10 col-md-8 col-lg-6 center mx-auto">
+	<div class="text-center" style="padding:50px 0">
+		<div class="login-form-1">
+			<form id="login-form" class="text-left" method="post">
+				<div class="login-form-main-message"></div>
+				<div class="main-login-form">
+					<div class="login-group">
+						<div class="form-group">
+							<label for="email" class="sr-only">E-mail</label>
+							<input type="text" class="form-control text-center" id="email" name="email" placeholder="Digite o seu Email">
+						</div>
+						<div class="form-group mt-3">
+							<label for="senha" class="sr-only">Senha</label>
+							<input type="password" class="form-control text-center" id="senha" name="senha" placeholder="Digite a sua Senha">
+						</div>
+						<div class="form-group login-group-checkbox mt-1">
+							<input type="checkbox" id="lg_remember" name="lg_remember" hidden>
+							<label for="lg_remember" hidden>remember</label>
+						</div>
+					</div>
+					<input class="my-3 btn btn-success" type="submit" id="botao" value="Entrar" />
+				</div>
+				<div class="etc-login-form">
+					<p hidden>
+						Esqueceu sua senha?
+						<a href="#">Clique aqui</a>
+					</p>
+					<p>
+						Novo usuário?
+						<a class="" asp-area="" asp-controller="Login" asp-action="Registro">Registrar-se</a>
+					</p>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
